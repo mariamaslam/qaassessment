@@ -94,11 +94,15 @@ docs/
 
 ## Sample test execution report & cross-browser evidence
 
-A full run's HTML report is committed at [`docs/sample-report/index.html`](./docs/sample-report/index.html) (open locally in a browser), with a screenshot below:
+Three forms of the same run are committed under `docs/sample-report/`:
+
+- [`execution-report.pdf`](./docs/sample-report/execution-report.pdf) — a print-friendly summary report (requirement-category breakdown, per-browser pass/fail, documented `fixme` gaps, and the real findings surfaced during verification), generated straight from Playwright's own JSON reporter output.
+- [`index.html`](./docs/sample-report/index.html) — Playwright's full interactive HTML report (traces, timings, filtering).
+- A screenshot for a quick look, below:
 
 ![Cross-browser run: 63 passed, 0 failed, 0 flaky](./docs/sample-report/screenshots/cross-browser-run.png)
 
-Regenerate it yourself at any time with `npm test && npm run report`.
+Regenerate the interactive report yourself at any time with `npm test && npm run report`.
 
 ## CI
 

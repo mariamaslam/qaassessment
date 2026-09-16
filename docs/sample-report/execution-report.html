@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>Test Execution Report</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #16202a; font-size: 11px; margin: 0; }
+  .cover { padding: 40px 0 24px; border-bottom: 3px solid #0b5fff; margin-bottom: 24px; }
+  .cover h1 { font-size: 24px; margin: 0 0 6px; color: #0b1f3a; }
+  .cover .sub { font-size: 13px; color: #4a5568; margin: 0 0 14px; }
+  .meta { display: flex; gap: 28px; font-size: 11px; color: #333; flex-wrap: wrap; }
+  .meta div b { display:block; color:#0b1f3a; font-size:12px; }
+  .summary { display: flex; gap: 12px; margin: 20px 0 28px; }
+  .stat { flex: 1; border-radius: 8px; padding: 14px 10px; text-align: center; color: #fff; }
+  .stat .n { font-size: 26px; font-weight: 700; display:block; }
+  .stat .l { font-size: 10px; text-transform: uppercase; letter-spacing: .04em; opacity:.9; }
+  .stat.pass { background: #12805c; }
+  .stat.fail { background: #b3261e; }
+  .stat.flaky { background: #b7791f; }
+  .stat.skip { background: #4a5568; }
+  .stat.total { background: #0b1f3a; }
+  section.cat { margin-bottom: 20px; page-break-inside: avoid; }
+  section.cat h2 { font-size: 14px; color: #0b1f3a; border-left: 4px solid #0b5fff; padding-left: 8px; margin: 0 0 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 9.5px; text-transform: uppercase; letter-spacing: .03em; color: #667085; padding: 6px 8px; border-bottom: 1.5px solid #d0d5dd; }
+  td { padding: 6px 8px; border-bottom: 1px solid #eaecf0; font-size: 10.5px; vertical-align: middle; }
+  td.tname { width: 46%; }
+  .badge { display:inline-block; padding: 1px 7px; border-radius: 10px; font-size: 9px; font-weight: 700; letter-spacing: .03em; }
+  .badge.pass { background: #d1fadf; color: #05603a; }
+  .badge.fail { background: #fee4e2; color: #912018; }
+  .badge.skip { background: #eaecf0; color: #475467; }
+  .badge.na { color: #aaa; }
+  .dur { font-size: 9px; color: #98a2b3; margin-left: 5px; }
+  .findings { background: #fff7e6; border: 1px solid #f0c674; border-radius: 8px; padding: 14px 16px; margin: 20px 0; page-break-inside: avoid; }
+  .findings h2 { margin: 0 0 8px; font-size: 13px; color: #7a4a00; }
+  .findings ol { margin: 0; padding-left: 18px; }
+  .findings li { margin-bottom: 8px; font-size: 10.5px; line-height: 1.4; }
+  .fixme-box { background: #f2f4f7; border-radius: 8px; padding: 14px 16px; margin: 20px 0; page-break-inside: avoid; }
+  .fixme-box h2 { margin: 0 0 8px; font-size: 13px; color: #0b1f3a; }
+  .fixme-box ul { margin: 0; padding-left: 18px; }
+  .fixme-box li { margin-bottom: 6px; font-size: 10.5px; line-height: 1.4; }
+  footer { margin-top: 30px; padding-top: 10px; border-top: 1px solid #d0d5dd; font-size: 9px; color: #98a2b3; display:flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <h1>MultiBank Trade QA — Test Execution Report</h1>
+    <p class="sub">Automated regression suite for <b>https://trade.mb.io</b> — Playwright + TypeScript, Page Object Model</p>
+    <div class="meta">
+      <div><b>2026-09-16 17:13 UTC</b>Run date/time</div>
+      <div><b>60.8s</b>Total duration</div>
+      <div><b>Chromium · Firefox · WebKit</b>Browsers</div>
+      <div><b>Production</b>Environment</div>
+      <div><b>Playwright 1.63.0 · Node v25.6.0</b>Toolchain</div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="stat total"><span class="n">23</span><span class="l">Unique tests</span></div>
+    <div class="stat pass"><span class="n">63</span><span class="l">Passed (all browsers)</span></div>
+    <div class="stat fail"><span class="n">0</span><span class="l">Failed</span></div>
+    <div class="stat flaky"><span class="n">0</span><span class="l">Flaky</span></div>
+    <div class="stat skip"><span class="n">6</span><span class="l">Documented fixme</span></div>
+  </div>
+
+  
+      <section class="cat">
+        <h2>5. Bonus — API / Network Validation</h2>
+        <table>
+          <thead><tr><th>Test case</th><th>Chromium</th><th>Firefox</th><th>WebKit</th></tr></thead>
+          <tbody><tr><td class="tname">assets API returns a well-formed, successful payload</td><td><span class="badge pass">PASS</span><span class="dur">3.6s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td></tr><tr><td class="tname">page surfaces the same pair count the API returned</td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.5s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.0s</span></td></tr></tbody>
+        </table>
+      </section>
+      <section class="cat">
+        <h2>3. Content &amp; Links</h2>
+        <table>
+          <thead><tr><th>Test case</th><th>Chromium</th><th>Firefox</th><th>WebKit</th></tr></thead>
+          <tbody><tr><td class="tname">marketing banner (mobile app promo) renders in the expected page region</td><td><span class="badge pass">PASS</span><span class="dur">3.5s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.8s</span></td></tr><tr><td class="tname">marketing banner is not shown at desktop widths (mobile-only placement)</td><td><span class="badge pass">PASS</span><span class="dur">3.6s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.0s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.8s</span></td></tr><tr><td class="tname">App Store and Google Play download links resolve correctly</td><td><span class="badge skip">FIXME</span></td><td><span class="badge skip">FIXME</span></td><td><span class="badge skip">FIXME</span></td></tr><tr><td class="tname">About Us &gt; Why MultiBank page renders all expected components with correct headings and section text</td><td><span class="badge skip">FIXME</span></td><td><span class="badge skip">FIXME</span></td><td><span class="badge skip">FIXME</span></td></tr></tbody>
+        </table>
+      </section>
+      <section class="cat">
+        <h2>4. Negative / Edge Cases</h2>
+        <table>
+          <thead><tr><th>Test case</th><th>Chromium</th><th>Firefox</th><th>WebKit</th></tr></thead>
+          <tbody><tr><td class="tname">invalid route handling: unknown paths render a 404 without crashing</td><td><span class="badge pass">PASS</span><span class="dur">4.0s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.6s</span></td></tr><tr><td class="tname">broken link detection across every public navigation link</td><td><span class="badge pass">PASS</span><span class="dur">4.7s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.8s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.8s</span></td></tr><tr><td class="tname">viewport regression at a mobile breakpoint (375px)</td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.1s</span></td></tr><tr><td class="tname">content loading timeout handling: pricing API failure degrades gracefully</td><td><span class="badge pass">PASS</span><span class="dur">4.5s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.1s</span></td></tr></tbody>
+        </table>
+      </section>
+      <section class="cat">
+        <h2>1. Navigation &amp; Layout</h2>
+        <table>
+          <thead><tr><th>Test case</th><th>Chromium</th><th>Firefox</th><th>WebKit</th></tr></thead>
+          <tbody><tr><td class="tname">top navigation renders with all expected items visible</td><td><span class="badge pass">PASS</span><span class="dur">3.6s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.6s</span></td></tr><tr><td class="tname">&quot;Home&quot; nav item resolves to the correct destination</td><td><span class="badge pass">PASS</span><span class="dur">3.6s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.5s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.8s</span></td></tr><tr><td class="tname">&quot;Markets&quot; nav item resolves to the correct destination</td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.4s</span></td></tr><tr><td class="tname">&quot;Trade&quot; menu exposes Spot, Instant Buy and Panic Sell, each resolving correctly</td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.3s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.7s</span></td></tr><tr><td class="tname">&quot;Log In&quot; and &quot;Sign Up&quot; open their respective auth pages</td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.9s</span></td></tr><tr><td class="tname">nav stays fully expanded at 1280x800 (small laptop)</td><td><span class="badge pass">PASS</span><span class="dur">3.4s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.6s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.2s</span></td></tr><tr><td class="tname">nav stays fully expanded at 1440x900 (standard laptop)</td><td><span class="badge pass">PASS</span><span class="dur">3.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.8s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.0s</span></td></tr><tr><td class="tname">nav stays fully expanded at 1920x1080 (full HD)</td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.1s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.6s</span></td></tr></tbody>
+        </table>
+      </section>
+      <section class="cat">
+        <h2>2. Trading Functionality</h2>
+        <table>
+          <thead><tr><th>Test case</th><th>Chromium</th><th>Firefox</th><th>WebKit</th></tr></thead>
+          <tbody><tr><td class="tname">spot trading section renders and displays trading pairs</td><td><span class="badge pass">PASS</span><span class="dur">3.8s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.8s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.2s</span></td></tr><tr><td class="tname">trading pairs are correctly grouped into categories</td><td><span class="badge pass">PASS</span><span class="dur">4.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.2s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.7s</span></td></tr><tr><td class="tname">&quot;Favorites&quot; category renders an empty state for a signed-out visitor</td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">4.3s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.7s</span></td></tr><tr><td class="tname">trading pair entries contain the expected data fields</td><td><span class="badge pass">PASS</span><span class="dur">3.8s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.9s</span></td><td><span class="badge pass">PASS</span><span class="dur">6.0s</span></td></tr><tr><td class="tname">every row exposes Details and Trade actions</td><td><span class="badge pass">PASS</span><span class="dur">2.0s</span></td><td><span class="badge pass">PASS</span><span class="dur">3.4s</span></td><td><span class="badge pass">PASS</span><span class="dur">5.5s</span></td></tr></tbody>
+        </table>
+      </section>
+
+  <div class="fixme-box">
+    <h2>Documented gaps (test.fixme) — 2 scenarios × 3 browsers</h2>
+    <ul>
+      <li><b>App Store / Google Play download links.</b> Confirmed (via the app's own i18n bundle keys "app-store"/"google-play" under "trade-on-the-go") to live only on the authenticated homepage template. Unreachable without logging in, which the brief explicitly disallows.</li>
+      <li><b>About Us &gt; Why MultiBank page.</b> Same gated-homepage constraint; no standalone public route exists today (/about-us, /why-multibank, /about-us/why-multibank all return 404).</li>
+    </ul>
+  </div>
+
+  <div class="findings">
+    <h2>Real findings surfaced during verification (not test defects — see docs/RISK_MATRIX.md)</h2>
+    <ol>
+      <li><b>Loading-skeleton race condition (fixed in the suite).</b> /markets briefly renders a loading skeleton with different header copy and column counts before hydrating; "Favorites" additionally uses a permanently different column schema, and mobile viewport collapses columns further. Headless execution usually outran this; headed/slower execution caught it. Fixed by waiting on hydrated "$"-priced row content rather than any specific header label.</li>
+      <li><b>Trade-menu link href briefly empty under heavy concurrent load.</b> Observed once across 5 parallel workers × 3 browsers; not reproducible in 10/10 isolated attempts. Hardened the assertion to wait for a non-empty href first; CI's retry policy (2 retries) also absorbs this class of transient noise.</li>
+      <li><b>Live Cloudflare 502 from trade.mb.io</b> hit once mid-verification (real production infrastructure blip, confirmed via the actual Cloudflare error page content, resolved within seconds). Not a suite defect — evidence the target is a live third-party system, which is exactly why CI runs with retries.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <span>MultiBank QA Automation Coding Challenge — trade.mb.io</span>
+    <span>Generated from Playwright JSON reporter output — reproducible via <code>npm test</code></span>
+  </footer>
+</body>
+</html>
