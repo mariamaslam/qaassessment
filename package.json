@@ -15,6 +15,8 @@
     "test:debug": "playwright test --debug",
     "report": "playwright show-report",
     "report:pdf": "node scripts/generate-pdf-report.js",
+    "docs:docx": "python3 scripts/md_to_docx.py docs/_src/*.md && mv docs/_src/*.docx docs/",
+    "docs:pdf": "node scripts/md_to_pdf.js docs/_src/*.md && mv docs/_src/*.pdf docs/",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [

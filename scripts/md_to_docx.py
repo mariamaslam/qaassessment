@@ -10,8 +10,10 @@ GitHub-style task list checkboxes (- [ ]), tables, and --- horizontal rules.
 It is not a general-purpose markdown parser - keep source docs within that
 subset.
 
-Usage: python3 scripts/md_to_docx.py docs/TEST_PLAN.md docs/RISK_MATRIX.md ...
-Each output file is written alongside its source, with a .docx extension.
+Usage: python3 scripts/md_to_docx.py docs/_src/TEST_PLAN.md docs/_src/RISK_MATRIX.md ...
+(or just `npm run docs:docx`, which runs this against docs/_src/*.md and
+moves the results into docs/). Each output file is written alongside its
+source, with a .docx extension.
 """
 import re
 import sys

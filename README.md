@@ -79,10 +79,11 @@ tests/
   edge-cases.spec.ts
   api-validation.spec.ts
 docs/
-  TASK2_QA_STRATEGY.docx
-  TEST_PLAN.docx
-  RELEASE_READINESS_CHECKLIST.docx
-  RISK_MATRIX.docx
+  TASK2_QA_STRATEGY.pdf / .docx
+  TEST_PLAN.pdf / .docx
+  RELEASE_READINESS_CHECKLIST.pdf / .docx
+  RISK_MATRIX.pdf / .docx
+  _src/                 markdown source for the four docs above
   sample-report/        committed HTML/PDF execution report + screenshot, see below
 ```
 
@@ -110,17 +111,24 @@ Regenerate the interactive report yourself at any time with `npm test && npm run
 
 ## Task 2 — QA Strategy & Thinking
 
-Full written answers: [`docs/TASK2_QA_STRATEGY.docx`](./docs/TASK2_QA_STRATEGY.docx).
+Full written answers: [`docs/TASK2_QA_STRATEGY.pdf`](./docs/TASK2_QA_STRATEGY.pdf) / [`.docx`](./docs/TASK2_QA_STRATEGY.docx).
 
 ## Test plan, release readiness checklist, risk matrix
 
-Provided as Word documents:
+Provided as both PDF and Word:
 
-- [`docs/TEST_PLAN.docx`](./docs/TEST_PLAN.docx) — covers both the automation in this repo and the Task 2 mobile-app scenario.
-- [`docs/RELEASE_READINESS_CHECKLIST.docx`](./docs/RELEASE_READINESS_CHECKLIST.docx) — for the Task 2 scenario.
-- [`docs/RISK_MATRIX.docx`](./docs/RISK_MATRIX.docx) — for the Task 2 scenario, plus a short secondary matrix for this automation suite's own operational risks.
+- [`docs/TEST_PLAN.pdf`](./docs/TEST_PLAN.pdf) / [`.docx`](./docs/TEST_PLAN.docx) — covers both the automation in this repo and the Task 2 mobile-app scenario.
+- [`docs/RELEASE_READINESS_CHECKLIST.pdf`](./docs/RELEASE_READINESS_CHECKLIST.pdf) / [`.docx`](./docs/RELEASE_READINESS_CHECKLIST.docx) — for the Task 2 scenario.
+- [`docs/RISK_MATRIX.pdf`](./docs/RISK_MATRIX.pdf) / [`.docx`](./docs/RISK_MATRIX.docx) — for the Task 2 scenario, plus a short secondary matrix for this automation suite's own operational risks.
 
-All four were generated via `scripts/md_to_docx.py` (requires `pip install python-docx`) — a small, purpose-built markdown → docx converter (see its docstring for the exact supported subset: headings, bold/italic/code, bullet/numbered/checkbox lists, tables). Kept in the repo so the content can be authored in markdown and regenerated as `.docx` again if it needs to change, rather than hand-editing Word files directly.
+Source content lives as markdown in `docs/_src/` and is never hand-edited in Word/PDF directly. Regenerate both formats after editing a source file with:
+
+```bash
+npm run docs:docx   # requires: pip install python-docx
+npm run docs:pdf    # renders via headless Chromium (already a project dependency)
+```
+
+Both run against a small, purpose-built markdown → docx/PDF converter (`scripts/md_to_docx.py`, `scripts/md_to_pdf.js` — see their docstrings for the exact supported subset: headings, bold/italic/code, bullet/numbered/checkbox lists, tables). The PDF path renders through Chromium rather than round-tripping through Word/LibreOffice — neither was available in this environment, and Pages.app's own docx→PDF export was found to visibly double-render every table, which is exactly the kind of "looks fine at a glance" bug this project is otherwise built to catch.
 
 ## Known gaps / future work
 
