@@ -78,7 +78,7 @@ test.describe('Negative / Edge Cases', () => {
     await expect(markets.heading).toBeVisible();
     await expect(markets.tabList).toBeVisible();
 
-    // Known gap (tracked in docs/RISK_MATRIX.md): the UI never surfaces an
+    // Known gap (tracked in docs/RISK_MATRIX.docx): the UI never surfaces an
     // explicit error/retry state to the user - it silently keeps rendering
     // empty skeleton rows. Asserted here so a future fix is caught by CI.
     const rowCount = await markets.rowCount();

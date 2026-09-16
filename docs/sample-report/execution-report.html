@@ -109,7 +109,7 @@
   </div>
 
   <div class="findings">
-    <h2>Real findings surfaced during verification (not test defects — see docs/RISK_MATRIX.md)</h2>
+    <h2>Real findings surfaced during verification (not test defects — see docs/RISK_MATRIX.docx)</h2>
     <ol>
       <li><b>Loading-skeleton race condition (fixed in the suite).</b> /markets briefly renders a loading skeleton with different header copy and column counts before hydrating; "Favorites" additionally uses a permanently different column schema, and mobile viewport collapses columns further. Headless execution usually outran this; headed/slower execution caught it. Fixed by waiting on hydrated "$"-priced row content rather than any specific header label.</li>
       <li><b>Trade-menu link href briefly empty under heavy concurrent load.</b> Observed once across 5 parallel workers × 3 browsers; not reproducible in 10/10 isolated attempts. Hardened the assertion to wait for a non-empty href first; CI's retry policy (2 retries) also absorbs this class of transient noise.</li>
