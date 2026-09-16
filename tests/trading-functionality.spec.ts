@@ -14,7 +14,7 @@ test.describe('Trading Functionality', () => {
 
   test.beforeEach(async ({ page }) => {
     markets = new MarketsPage(page);
-    await markets.goto();
+    await markets.open();
   });
 
   test('spot trading section renders and displays trading pairs', async () => {

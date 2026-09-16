@@ -16,7 +16,7 @@ test.describe('API / network validation (bonus)', () => {
 
     const [response] = await Promise.all([
       page.waitForResponse((res) => res.url().includes('/cmc/v1/assets') && res.request().method() === 'GET'),
-      markets.goto(),
+      markets.open(),
     ]);
 
     expect(response.status()).toBe(200);
@@ -42,7 +42,7 @@ test.describe('API / network validation (bonus)', () => {
     const responsePromise = page.waitForResponse(
       (res) => res.url().includes('/cmc/v1/assets') && res.request().method() === 'GET',
     );
-    await markets.goto();
+    await markets.open();
     const response = await responsePromise;
     const body = await response.json();
     const apiPairCount = Object.keys(body.data).length;

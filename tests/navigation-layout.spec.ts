@@ -12,7 +12,7 @@ import { headerNavItems, tradeMenuItems } from '../src/data/navigation.data';
 test.describe('Navigation & Layout', () => {
   test.beforeEach(async ({ page }) => {
     const markets = new MarketsPage(page);
-    await markets.goto();
+    await markets.open();
   });
 
   test('top navigation renders with all expected items visible', async ({ page }) => {
@@ -49,6 +49,11 @@ test.describe('Navigation & Layout', () => {
     for (const item of tradeMenuItems) {
       const link = markets.header.tradeMenuItem(item.label);
       await expect(link).toBeVisible();
+      // Observed once under heavy concurrent load (many parallel workers
+      // hitting the live site at once): href briefly empty before the menu
+      // item finishes hydrating. Not reproducible in isolation (10/10 clean)
+      // - waiting it out here rather than asserting instantly.
+      await expect(link).not.toHaveAttribute('href', '');
       await expect(link).toHaveAttribute('href', item.href);
     }
   });

@@ -18,7 +18,7 @@ test.describe('Negative / Edge Cases', () => {
 
   test('broken link detection across every public navigation link', async ({ page, request }) => {
     const markets = new MarketsPage(page);
-    await markets.goto();
+    await markets.open();
 
     const hrefs = new Set<string>([
       ...headerNavItems.map((i) => i.href),
@@ -39,7 +39,7 @@ test.describe('Negative / Edge Cases', () => {
   test('viewport regression at a mobile breakpoint (375px)', async ({ page }) => {
     const markets = new MarketsPage(page);
     await markets.setViewport(375, 667);
-    await markets.goto();
+    await markets.open();
 
     // Layout must have switched to the collapsed/off-canvas nav...
     await expect(markets.header.mobileMenuToggle).toBeVisible();
@@ -66,7 +66,9 @@ test.describe('Negative / Edge Cases', () => {
     await page.route('**/core-api.mb.io/**', (route) => route.abort('timedout'));
 
     const markets = new MarketsPage(page);
-    await markets.goto();
+    // waitForData: false - this deliberately inspects the page mid-load;
+    // the default goto() would wait for real data and time out here itself.
+    await markets.open(false);
     await page.waitForTimeout(3000);
 
     // The page must stay up and interactive - no unhandled-exception screen -

@@ -18,7 +18,7 @@ test.describe('Content & Links', () => {
   test('marketing banner (mobile app promo) renders in the expected page region', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     const markets = new MarketsPage(page);
-    await markets.goto();
+    await markets.open();
 
     // Expected region: inside the header, above the page's primary content.
     const banner = markets.header.root.getByText('The fastest way to buy crypto');
@@ -35,7 +35,7 @@ test.describe('Content & Links', () => {
 
   test('marketing banner is not shown at desktop widths (mobile-only placement)', async ({ page }) => {
     const markets = new MarketsPage(page);
-    await markets.goto();
+    await markets.open();
     await expect(page.getByText('The fastest way to buy crypto')).toBeHidden();
   });
 
